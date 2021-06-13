@@ -1,0 +1,37 @@
+﻿<Window x:Class="WpfUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUI"
+        mc:Ignorable="d"
+        Title="Workforce Manager" Height="543.36" Width="621.6" MinWidth="500">
+    <Grid>
+        <DataGrid ItemsSource="{Binding collectionOfEmployees}" x:Name="employeesGrid" AutoGenerateColumns="False"
+              CanUserResizeColumns="False" HeadersVisibility="Column" SelectionUnit="FullRow" SelectionChanged="employeesGrid_SelectionChanged"
+                  CanUserAddRows="False" Margin="0,0,0.2,0" Height="236" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" Width="*" />
+                <DataGridTextColumn Header="Gender" Binding="{Binding Path=Gender}" Width="50" />
+                <DataGridTextColumn Header="Birthday" Binding="{Binding Path=DateOfBirth}" Width="70" />
+                <DataGridTextColumn Header="Position" Binding="{Binding Path=Position}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="searchButton" Content="Поиск" Margin="374,316,0,0" Click="searchButton_Click" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
+        <Label x:Name="label1" Content="Поиск по отделу:" Margin="46,313,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="104"/>
+        <TextBox x:Name="searchPromptTextbox" Margin="165,316,0,0" TextWrapping="Wrap" Text="введите название отдела" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="184"/>
+        <Button x:Name="searchCancelButton" Content="Отмена" Margin="480,316,0,0" Click="searchCancelButton_Click" HorizontalAlignment="Left" Width="75" Height="19" VerticalAlignment="Top"/>
+        <Label Content="Дополнительная информация:" HorizontalAlignment="Left" Margin="46,266,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="infoLabel" Content="" HorizontalAlignment="Left" Margin="230,266,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="saveButton" Content="Сохранить изменения" HorizontalAlignment="Left" Margin="241,471,0,0" VerticalAlignment="Top" Width="143" Click="saveButton_Click"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="35,384,0,0" TextWrapping="Wrap" Text="имя" VerticalAlignment="Top" Width="336"/>
+        <Label Content="Добавить работника" HorizontalAlignment="Left" Margin="241,356,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="dobBox" HorizontalAlignment="Left" Height="23" Margin="412,384,0,0" TextWrapping="Wrap" Text="дата рождения" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="genderBox" HorizontalAlignment="Left" Height="23" Margin="552,384,0,0" TextWrapping="Wrap" Text="пол" VerticalAlignment="Top" Width="38"/>
+        <TextBox x:Name="positionBox" HorizontalAlignment="Left" Height="23" Margin="35,420,0,0" TextWrapping="Wrap" Text="должность" VerticalAlignment="Top" Width="195"/>
+        <TextBox x:Name="departmentBox" HorizontalAlignment="Left" Height="23" Margin="251,419,0,0" TextWrapping="Wrap" Text="отдел" VerticalAlignment="Top" Width="203"/>
+        <Button x:Name="newWorkerButton" Content="Добавить" HorizontalAlignment="Left" Margin="494,419,0,0" VerticalAlignment="Top" Width="75" Click="newWorkerButton_Click"/>
+    </Grid>
+
+</Window>
